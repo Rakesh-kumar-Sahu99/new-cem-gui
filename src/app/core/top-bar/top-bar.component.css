@@ -1,0 +1,20 @@
+/* img{
+    max-width: 100%;
+} */
+
+img{
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+mat-toolbar{
+    margin-top: 3px;
+    background-color: rgb(243, 243, 243);
+    height: 50px;
+    color: black;
+}
+
+.toolbar-icon {
+    margin-left: auto; /* Push the icon to the right side */
+}

@@ -1,0 +1,10 @@
+<ag-grid-angular
+    [rowData]="tableData"
+    [columnDefs]="columns"
+    [defaultColDef]="config"
+    [pagination]="true"
+    [paginationPageSize]="5"
+    class="ag-theme-quartz"
+    style="height: 500px;"
+    (rowClicked)="onClick($event)">
+  </ag-grid-angular>

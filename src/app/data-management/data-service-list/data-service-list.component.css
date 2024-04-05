@@ -1,0 +1,29 @@
+.col-4{
+    /* background-color: aqua; */
+    border-radius: 2px ;
+    height: 400PX;
+}
+.joinfilter{
+    display:flex;
+    margin-top: 10px;
+}
+.joinfilter-item{
+    margin-right: 5px;
+    flex: 1;
+}
+.mat-select {
+    height: auto;
+}
+
+.spacer{
+    height: 300px;
+}
+.details{
+    height: 400px;
+}
+.example-full-width{
+    margin-right: 5px;
+}
+/* .height{
+    height: 400px;
+} */

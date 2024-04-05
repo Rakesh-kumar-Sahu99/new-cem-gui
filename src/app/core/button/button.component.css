@@ -1,0 +1,17 @@
+.view {
+    margin: 2px;
+    height: 25px;
+    width: 30px;
+}
+
+.edit {
+    margin: 2px;
+    height: 25px;
+    width: 30px;
+}
+
+.delete {
+    margin: 2px;
+    height: 25px;
+    width: 30px;
+}

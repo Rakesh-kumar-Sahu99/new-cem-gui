@@ -1,0 +1,36 @@
+
+.form-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: start; /* Align items at the start */
+    height: 420px; 
+    margin-top: 20px;
+}
+.span{
+  color: black;
+  font-weight: bolder;
+  font-size: large;
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+
+/* .form-border {
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    width: 600px;
+} */
+
+.button {
+    /* margin-right: 5px; */
+    margin-top: 20px;
+}
+
+.row {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.save {
+    margin-right: 5px;
+}

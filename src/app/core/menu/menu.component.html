@@ -1,0 +1,14 @@
+<mat-toolbar>
+    <div class="icon">
+        <i class="fa-solid fa-circle-dot"></i>
+    </div>
+    <div class="select">
+        <select class="form-select" (change)="onSelectResource($event)">
+            <option selected>{{sectorLabel}}</option>
+            @for (module of subModules; track module) {
+            <option [value]="module.url">{{module.resourceName}}</option>
+            }
+        </select>
+    </div>
+</mat-toolbar>
+<router-outlet></router-outlet>

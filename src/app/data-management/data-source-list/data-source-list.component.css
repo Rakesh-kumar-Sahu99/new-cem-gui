@@ -1,0 +1,12 @@
+mat-toolbar{
+    /* margin: 3px 20px; Shorten from left and right by 20px */
+    /* max-width: calc(100% - 40px); Prevent extending beyond screen */
+    /* overflow: hidden; */
+    height: 50px;
+    font-size: 15px;
+    color: darkslategray;
+    
+}
+.spacer{
+    flex: 1;
+}

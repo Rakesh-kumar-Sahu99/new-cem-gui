@@ -1,0 +1,13 @@
+<mat-toolbar>
+    <span>{{title}}</span>
+    <div class="spacer"></div>
+    <div>
+        <button mat-raised-button color="accent" (click)="openDataSourceForm($event)">CREATE</button>
+    </div>
+</mat-toolbar>
+<app-grid
+    [columns]="colDefs"
+    [config]="tableConfiguration"
+    [tableData]="data"
+    (personData)="openDialogForm($event)">
+</app-grid>

@@ -1,0 +1,105 @@
+<mat-stepper linear #stepper>
+    <mat-step>
+      <form>
+        <ng-template matStepLabel>Attributes</ng-template>
+
+        <div class="row">
+            <div class="col-4">
+              <mat-tab-group>
+                <mat-tab label="Databases">
+                  <section class="database_selection">
+                    <span class="example-list-section">
+                      <ul *ngFor="let database of databases.data">
+                        <mat-checkbox [value]="database">{{database}}</mat-checkbox>
+                      </ul>
+                    </span>
+                  </section>
+                </mat-tab>
+                <mat-tab label="Entity">
+
+                </mat-tab>
+                <mat-tab label="Column">
+
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+            <div class="col-8">
+                <app-grid [columns]="columns"
+                          [tableData]="tabelData" 
+                          [config]="tableConfiguration" ></app-grid>
+            </div>
+        </div>
+        
+        
+        <div class="button-group d-flex justify-content-end with-border-top">
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <form>
+        <ng-template matStepLabel>JoinFilter</ng-template>
+        <div class="joinfilter">
+          <mat-form-field class="joinfilter-item">
+            <mat-label>LEFT ENTITY</mat-label>
+            <mat-select>
+                <mat-option [value]=""></mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="joinfilter-item">
+            <mat-label>LEFT EXPRESSION</mat-label>
+            <mat-select>
+                <mat-option [value]=""></mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="joinfilter-item">
+            <mat-label>JOIN</mat-label>
+            <mat-select>
+                <mat-option [value]=""></mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="joinfilter-item">
+            <mat-label>OPERATOR</mat-label>
+            <mat-select>
+                <mat-option [value]=""></mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="joinfilter-item">
+            <mat-label>RIGHT EXPRESSION</mat-label>
+            <mat-select>
+                <mat-option [value]=""></mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="joinfilter-item">
+            <mat-label>RIGHT ENTITY</mat-label>
+            <mat-select>
+                <mat-option [value]=""></mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="spacer"></div>
+        <div class="button-group d-flex justify-content-end with-border-top">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+        <form>
+          <ng-template matStepLabel>Details</ng-template>
+          <div class="details">
+            <mat-form-field class="example-full-width">
+              <mat-label>Data Service</mat-label>
+              <input type="text" matInput>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Description</mat-label>
+              <input type="text" matInput>
+            </mat-form-field>
+          </div>
+          <div class="button-group d-flex justify-content-end with-border-top">
+            <button mat-raised-button color="primary">Save</button>
+          </div>
+        </form>
+      </mat-step>
+  </mat-stepper>
