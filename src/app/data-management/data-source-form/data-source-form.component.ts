@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class DataSourceFormComponent implements OnInit {
   public userForm: any;
-  public dbBase = ['MySql', 'Oracle', 'PostgreSQL', 'MongoDB', 'SQLite', 'SQL Server'];
+  public dbBase = ['MySQL', 'Oracle', 'PostgreSQL', 'MongoDB', 'SQLite', 'SQL Server'];
   public actionType: any;
   constructor(private formBuilder: FormBuilder,
     private dialog: MatDialogRef<DataSourceFormComponent>,
@@ -21,6 +21,7 @@ export class DataSourceFormComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any) {
 
   }
+  
   ngOnInit(): void {
     this.actionType = this.data.actionType;
     if (this.data != undefined) {
@@ -46,11 +47,11 @@ export class DataSourceFormComponent implements OnInit {
       } 
       if(this.actionType = 'EDIT'){
         this.userForm = this.formBuilder.group({
-          dbType: [this.data.formdata.dbType, [Validators.required]],
-          host: [this.data.formdata.host, [Validators.required]],
-          dbName: [this.data.formdata.dbName, [Validators.required]],
-          userName: [this.data.formdata.userName, [Validators.required]],
-          password: [this.data.formdata.password, [Validators.required]]
+          dbType: [this.data.formdata.dbType],
+          host: [this.data.formdata.host],
+          dbName: [this.data.formdata.dbName],
+          userName: [this.data.formdata.userName],
+          password: [this.data.formdata.password]
         })
       }
     }

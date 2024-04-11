@@ -11,6 +11,16 @@ export class menuConfig{
                     "url": "/dm/dataSource",
                     "resourceName": "dataSource"
                 }
+                // {
+                //     "url": "/analytic/widgetlist",
+                //     "resourceName": "WIDGET"
+
+                // },
+                // {
+                //     "url": "/dm/dataSource",
+                //     "resourceName": "dataSource"
+
+                // }
             ]
         }
     };

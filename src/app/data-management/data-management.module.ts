@@ -18,6 +18,10 @@ import {  MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterModule, Routes } from '@angular/router';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { WidgetFormComponent } from './widget-form/widget-form.component';
+import { WidgetListComponent } from './widget-list/widget-list.component';
+import {MatCardModule} from '@angular/material/card';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 const routes:Routes=[
@@ -28,6 +32,10 @@ const routes:Routes=[
   {
     path:"dataSource",
     component:DataSourceListComponent
+  },
+  {
+    path:"widget",
+    component:WidgetListComponent
   }
 ]
 
@@ -37,7 +45,9 @@ const routes:Routes=[
     DataSourceListComponent,
     DataSourceFormComponent,
     DataServiceFormComponent,
-    DataServiceListComponent
+    DataServiceListComponent,
+    WidgetFormComponent,
+    WidgetListComponent
   ],
   exports:[
     DataSourceListComponent
@@ -57,7 +67,9 @@ const routes:Routes=[
     MatSnackBarModule,
     RouterModule.forChild(routes),
     MatTabsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule,
+    DragDropModule
   ]
 })
 export class DataManagementModule { }

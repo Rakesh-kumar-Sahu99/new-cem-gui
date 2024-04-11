@@ -10,5 +10,16 @@
             }
         </select>
     </div>
+    <div class="spacer"></div>
+    <div class="icon2">
+        <i class="fa-solid fa-circle-dot"></i>
+    </div>
+    <div class="select">
+        <select class="form-select" (change)="onSelectResource($event)">
+            <option selected>ANALITICS</option>
+            <option value="dm/widget">WIDGET</option>
+        </select>
+    </div>
+
 </mat-toolbar>
 <router-outlet></router-outlet>

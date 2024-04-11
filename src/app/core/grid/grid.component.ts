@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output ,ChangeDetectorRef } from '@angular/core';
 import { ColDef } from 'ag-grid-community';
 
 @Component({
@@ -7,11 +7,15 @@ import { ColDef } from 'ag-grid-community';
   styleUrl: './grid.component.css'
 })
 export class GridComponent implements OnInit{
-  constructor(){
+  constructor(private cdRef:ChangeDetectorRef){
 
   }
   ngOnInit(): void {
     
+  }
+  ngOnChanges(): void {
+    // Manually trigger change detection when inputs change
+    this.cdRef.detectChanges();
   }
 
   @Input() public tableData:any;

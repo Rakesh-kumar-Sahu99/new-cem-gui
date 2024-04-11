@@ -13,6 +13,7 @@ import { DataSourceListComponent } from '../data-management/data-source-list/dat
 import { DataServiceFormComponent } from '../data-management/data-service-form/data-service-form.component';
 import { ButtonComponent } from './button/button.component';
 import {MatButtonModule} from '@angular/material/button';
+import { AmchartComponent } from './amchart/amchart.component';
 
 // const routes: Routes = [
 //   { path: 'dataSource', component: DataSourceListComponent },
@@ -26,13 +27,15 @@ import {MatButtonModule} from '@angular/material/button';
     TopBarComponent,
     MenuComponent,
     GridComponent,
-    ButtonComponent
+    ButtonComponent,
+    AmchartComponent
   ],
   exports:[
     MenuComponent,
     TopBarComponent,
     GridComponent,
-    ButtonComponent
+    ButtonComponent,
+    AmchartComponent
   ],
   imports: [
     CommonModule,
