@@ -31,4 +31,10 @@ export class DMService {
   getDatabases() {
     return this.httpClient.get("http://localhost:8082/getalldatabase");
   }
+  getEntityName(entityName:String){
+    return this.httpClient.get("http://localhost:8082/getallentities/"+entityName);
+  }
+  getColumns(dbName:String,entityName:String){
+    return this.httpClient.get("http://localhost:8082/gettableinfo/"+dbName+"/"+entityName);
+  }
 }
