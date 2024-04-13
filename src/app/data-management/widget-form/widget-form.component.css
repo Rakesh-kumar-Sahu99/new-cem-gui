@@ -1,0 +1,41 @@
+#leftbox{
+    /* background-color: blanchedalmond; */
+    height: 650px;
+    margin-top: 3px;
+}
+#rightbox{
+    border: 2px solid black;
+    width: 675px;
+    height: 650px;
+    margin-top: 3px;
+}
+mat-toolbar{
+    border: 2px solid black;
+}
+.details{
+    margin-top: 10px;
+}
+.spacer{
+    flex: 1;
+}
+mat-form-field{
+    margin-right: 10px;
+}
+button{
+    margin-top: 5px;
+}
+.dropable{
+    border: 2px solid black;
+}
+.col-4{
+    border: 2px solid black;
+    /* width: 845px; */
+}
+.col-8{
+    border: 2px solid black;
+    width: 845px;
+}
+.graph{
+    margin-top: 50px;
+    margin-left: 50px;
+}

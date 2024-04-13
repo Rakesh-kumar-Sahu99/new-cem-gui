@@ -10,7 +10,7 @@
               <section class="database_selection">
                 <span class="example-list-section">
                   <ul *ngFor="let database of databases">
-                    <mat-checkbox [value]="database" formControlName="db"
+                    <mat-checkbox [value]="database" formControlName="db" 
                       (change)="onDbCheckBoxChenge($event)">{{database}}</mat-checkbox>
                   </ul>
                 </span>
@@ -51,48 +51,50 @@
     </form>
   </mat-step>
   <mat-step>
-    <form>
+    <form [formGroup]="selectMenu">
       <ng-template matStepLabel>JoinFilter</ng-template>
       <div class="joinfilter">
         <mat-form-field class="joinfilter-item">
           <mat-label>LEFT ENTITY</mat-label>
-          <mat-select>
-            <mat-option [value]=""></mat-option>
+          <mat-select formControlName="leftEntity">
+            <mat-option (onSelectionChange)="leftSelectionChange($event)" *ngFor="let entity of entityName" [value]="entity">{{entity}}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field class="joinfilter-item">
           <mat-label>LEFT EXPRESSION</mat-label>
-          <mat-select>
-            <mat-option [value]=""></mat-option>
+          <mat-select formControlName="leftexpression">
+            <mat-option [value]="leftexp.columnName" *ngFor="let leftexp of leftExpression">{{leftexp.columnName}}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field class="joinfilter-item">
           <mat-label>JOIN</mat-label>
-          <mat-select>
-            <mat-option [value]=""></mat-option>
+          <mat-select formControlName="join">
+            <mat-option [value]="join" *ngFor="let join of joinValue">{{join}}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field class="joinfilter-item">
           <mat-label>OPERATOR</mat-label>
-          <mat-select>
-            <mat-option [value]=""></mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="joinfilter-item">
-          <mat-label>RIGHT EXPRESSION</mat-label>
-          <mat-select>
-            <mat-option [value]=""></mat-option>
+          <mat-select formControlName="operator">
+            <mat-option value="EQUAL">EQUAL</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field class="joinfilter-item">
           <mat-label>RIGHT ENTITY</mat-label>
-          <mat-select>
-            <mat-option [value]=""></mat-option>
+          <mat-select formControlName="rightEntity">
+            <mat-option (onSelectionChange)="rightSelectionChange($event)" *ngFor="let entity of entityName" [value]="entity">{{entity}}</mat-option>
           </mat-select>
         </mat-form-field>
+        <mat-form-field class="joinfilter-item">
+          <mat-label>RIGHT EXPRESSION</mat-label>
+          <mat-select formControlName="rightexpression">
+            <mat-option [value]="rightexp.columnName" *ngFor="let rightexp of rightExpression">{{rightexp.columnName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- <div class="spacer1"></div> -->
+        <button mat-raised-button color="primary" class="add" (click)="viewControls()">add</button>
       </div>
       <div class="table">
-        <app-grid [columns]="" [tableData]="" [config]=""></app-grid>
+        <app-grid [columns]="joinFilterColDefs" [tableData]="joinFilterData" [config]="joinFilterConfiguration"></app-grid>
       </div>
       <div class="button-group d-flex justify-content-end with-border-top">
         <button mat-button matStepperPrevious>Back</button>
@@ -101,20 +103,20 @@
     </form>
   </mat-step>
   <mat-step>
-    <form>
+    <form [formGroup]="detailsForm">
       <ng-template matStepLabel>Details</ng-template>
       <div class="details">
         <mat-form-field class="example-full-width">
-          <mat-label>Data Service</mat-label>
-          <input type="text" matInput>
+          <mat-label>Data Service Name</mat-label>
+          <input type="text" matInput formControlName="dataServiceName">
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Description</mat-label>
-          <input type="text" matInput>
+          <input type="text" matInput formControlName="description">
         </mat-form-field>
       </div>
       <div class="button-group d-flex justify-content-end with-border-top">
-        <button mat-raised-button color="primary">Save</button>
+        <button mat-raised-button color="primary" (click)="constructJson()">Save</button>
       </div>
     </form>
   </mat-step>

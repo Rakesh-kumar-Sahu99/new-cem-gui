@@ -12,15 +12,38 @@ import { MatStepper } from '@angular/material/stepper';
 export class DataServiceListComponent implements OnInit {
 
   public selectTabs: any;
+  public selectMenu: any;
+  public detailsForm:any;
   public databases: any = [];
   public selectedDatabase: any;
+  public selectedEntity:any;
   public entityName: any = [];
   public columnsNames: any = [];
   public tableData: any = [];
+  public leftExpression : any = [];
+  public rightExpression : any = [];
+  public leftEntitySelected:any;
+  public rightEntitySelected:any;
+  public joinFilterData : any =[];
+  public joinValue : any =["Inner Join","Left Join","Right Join","Full Join","Cross Join"]
   public columns: ColDef[] = [
     { field: "columnName" },
     { field: "columnDataType" }
   ]
+  public joinFilterConfiguration: ColDef = {
+    flex: 1,
+    minWidth: 150,
+    filter: true,
+    autoHeight: true
+  };
+  public joinFilterColDefs: ColDef[] = [
+    { field: "leftEntity" },
+    { field: "leftexpression" },
+    { field: "join" },
+    { field: "operator"},
+    { field: "rightexpression" },
+    { field: "rightEntity" }
+  ];
 
   public tableConfiguration: ColDef = {
     flex: 1,
@@ -35,6 +58,20 @@ export class DataServiceListComponent implements OnInit {
       db: [''],
       entity: [''],
       column: ['']
+    })
+
+    this.selectMenu = this.formBuilder.group({
+      leftEntity:[''],
+      rightEntity:[''],
+      rightexpression:[''],
+      leftexpression:[''],
+      join:[''],
+      operator:['']
+    })
+
+    this.detailsForm = this.formBuilder.group({
+      dataServiceName:[''],
+      description:['']
     })
   }
   ngOnInit(): void {
@@ -51,6 +88,7 @@ export class DataServiceListComponent implements OnInit {
   }
 
   onEntityCheckBoxChenge(event: any) {
+    this.selectedEntity = event.source.value;
     this.dmService.getColumns(this.selectedDatabase, event.source.value).subscribe(
       (columns: any) => {
         this.columnsNames = columns.data;
@@ -66,8 +104,8 @@ export class DataServiceListComponent implements OnInit {
     } else {
       this.tableData = this.tableData.filter((value: any) => value !== event.source.value);
     }
-    console.log(this.tableData);
-    // console.log(this.selectTabs.value);
+    // console.log(this.tableData);
+    // console.log(this.selectTabs);
     this.cdRef.detectChanges();
 
   }
@@ -81,5 +119,50 @@ export class DataServiceListComponent implements OnInit {
     );
 
   }
+
+  leftSelectionChange(event:any){
+    this.dmService.getColumns(this.selectedDatabase, event.source.value).subscribe(
+      (columns: any) => {
+        this.leftExpression = columns.data;
+      }
+    )
+    // if (this.selectMenu.controls.leftEntity.value !== null) {
+    //   console.log(this.selectMenu.controls.leftEntity.value);
+    // } else {
+    //   console.log("Value not set");
+    // }
+    
+    // console.log(this.selectMenu.value);
+
+  }
+  rightSelectionChange(event:any){
+    this.dmService.getColumns(this.selectedDatabase, event.source.value).subscribe(
+      (columns: any) => {
+        this.rightExpression = columns.data;
+      }
+    )
+
+  }
+
+  viewControls(){
+    // console.log(this.selectMenu.value);
+    if(!this.joinFilterData.includes(this.selectMenu.value)){
+      this.joinFilterData = [...this.joinFilterData, this.selectMenu.value];
+    }
+    this.cdRef.detectChanges();
+  }
+
+  constructJson(){
+    const jsonStructure = {
+      "entity name": this.selectedEntity,
+      "columns": this.tableData,
+      "joincriteria": this.selectMenu.value,
+      "data service name": this.detailsForm.value.dataServiceName,
+      "description": this.detailsForm.value.description
+    };
+    console.log(this.detailsForm);
+    console.log(jsonStructure);
+  }
+
 
 }

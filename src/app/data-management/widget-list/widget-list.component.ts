@@ -17,8 +17,8 @@ export class WidgetListComponent {
     // console.log(this.dialog)
     let dialogRef = this.dialog.open(WidgetFormComponent, {
       // data:{'actionType':actionType},
-      height: '500px',
-      width: '900px',
+      height: '600px',
+      width: '2500px',
     });
   }
 

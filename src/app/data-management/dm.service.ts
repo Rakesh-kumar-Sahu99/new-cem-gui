@@ -37,4 +37,8 @@ export class DMService {
   getColumns(dbName:String,entityName:String){
     return this.httpClient.get("http://localhost:8082/gettableinfo/"+dbName+"/"+entityName);
   }
+
+  // saveDataService(jsonpayload:any){
+  //   return this.httpClient.post
+  // }
 }

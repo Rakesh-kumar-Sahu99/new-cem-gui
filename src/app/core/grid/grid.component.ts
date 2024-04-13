@@ -14,7 +14,6 @@ export class GridComponent implements OnInit{
     
   }
   ngOnChanges(): void {
-    // Manually trigger change detection when inputs change
     this.cdRef.detectChanges();
   }
 

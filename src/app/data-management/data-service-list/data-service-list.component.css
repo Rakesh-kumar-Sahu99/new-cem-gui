@@ -24,6 +24,6 @@
 .example-full-width{
     margin-right: 5px;
 }
-/* .height{
-    height: 400px;
-} */
+.add{
+    flex: 1;
+}
